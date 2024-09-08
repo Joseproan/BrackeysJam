@@ -22,4 +22,6 @@ public class PlayerManager : MonoBehaviour
     {
         playerLocomotion.HandleAllMovement();
     }
+
+
 }
