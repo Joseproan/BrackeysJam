@@ -143,7 +143,7 @@ Transform:
   m_Children:
   - {fileID: 3719095222765457807}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7343983728957919628
 MeshFilter:
@@ -231,12 +231,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannon: {fileID: 3719095222765457807}
-  bulletPrefab: {fileID: 3842758858957063263, guid: 790589a7d80612346961294e883d73f5,
+  bulletPrefab: {fileID: 2697662159289743093, guid: ea737a559c6bd134ebf737a494cf5cad,
     type: 3}
   firePoint: {fileID: 1219647531095938180}
   range: 15
   fireRate: 1
   turnSpeed: 10
+  damage: 3
   rotationPatrol: 20
 --- !u!1 &2319766676746349446
 GameObject:

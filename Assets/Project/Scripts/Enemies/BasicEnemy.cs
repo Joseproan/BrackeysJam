@@ -21,10 +21,12 @@ public class BasicEnemy : MonoBehaviour
     private states currentState;
     private bool isExploding;
 
-    [SerializeField] SphereCollider explosionCollider;
+    
     [SerializeField] private float attackFeedbackTimer = 2f;
     float timer;
 
+    [SerializeField] private float distanceToAttack;
+    [SerializeField] private GameObject explosionCollider;
     [SerializeField] private GameObject explosionSFX;
     private void Awake()
     {
@@ -44,19 +46,28 @@ public class BasicEnemy : MonoBehaviour
 
     private void Update()
     {
-        // Si el estado actual es SEEK (el enemigo está buscando al jugador)
+        // Si el estado actual es SEEK (el enemigo estï¿½ buscando al jugador)
         if (currentState == states.SEEK)
         {
             playerPos = player.transform.position;
             agent.SetDestination(playerPos);
+
+            if (Vector3.Distance(playerPos, this.transform.position) <= distanceToAttack)
+            {
+                currentState = states.ATTACK;
+            }
             timer = attackFeedbackTimer;
         }
 
-        // Si el estado es ATTACK, puedes agregar la lógica de ataque aquí
+        // Si el estado es ATTACK, puedes agregar la lï¿½gica de ataque aquï¿½
         if (currentState == states.ATTACK)
         {
-            playerPos = player.transform.position;
-            agent.SetDestination(playerPos);
+            if (player != null)
+            {
+                playerPos = player.transform.position;
+                agent.SetDestination(playerPos);
+            }
+
             //agent.enabled = false;
             animator.SetTrigger("Jump");
 
@@ -65,6 +76,7 @@ public class BasicEnemy : MonoBehaviour
             {
                 if (!isExploding)
                 {
+                    explosionCollider.SetActive(true);
                     Instantiate(explosionSFX, this.transform.position, Quaternion.identity);
                     isExploding = true;
                     Destroy(gameObject, 0.1f);
@@ -73,12 +85,5 @@ public class BasicEnemy : MonoBehaviour
             else timer -= Time.deltaTime;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (currentState == states.SEEK && other.gameObject.CompareTag("Player"))
-        {
-            currentState = states.ATTACK;
-        }
-    }
+    
 }
