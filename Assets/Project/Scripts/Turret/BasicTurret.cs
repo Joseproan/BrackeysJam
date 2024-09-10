@@ -23,15 +23,18 @@ public class BasicTurret : MonoBehaviour
     public float fireRate = 1F;
     public float turnSpeed = 10f;
     public float damage = 3f;
+    public float maxAmmo = 20f;
 
     [Header("Detail Stats")]
     public float rotationPatrol = 20f;
 
+    public float ammo;
     // Start is called before the first frame update
     void Start()
     {
         currentState = states.PATROL;
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        ammo = maxAmmo;
     }
 
     void UpdateTarget()
@@ -78,7 +81,7 @@ public class BasicTurret : MonoBehaviour
 
             if(fireCountdown <= 0)
             {
-                Shoot();
+                if(ammo > 0) Shoot();
                 fireCountdown = 1F / fireRate;
             }
 
@@ -96,6 +99,8 @@ public class BasicTurret : MonoBehaviour
         {
             bullet.Seek(target);
         }
+
+        ammo--;
     }
     private void OnDrawGizmosSelected()
     {

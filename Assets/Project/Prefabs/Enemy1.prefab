@@ -228,7 +228,7 @@ Transform:
   - {fileID: 8145492477865198921}
   - {fileID: 1382879190062418402}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1623270327771611582
 Rigidbody:
@@ -291,8 +291,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a168cd74e6120458b797dc92093946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionCollider: {fileID: 711695056148717134}
   attackFeedbackTimer: 1
+  distanceToAttack: 8
+  explosionCollider: {fileID: 7187769228900002787}
   explosionSFX: {fileID: 8650938231098632368, guid: 4ccd4d88799b3e141a80d0714272a732,
     type: 3}
 --- !u!114 &7862599161850571449
@@ -858,13 +859,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1382879190062418402}
   - component: {fileID: 711695056148717134}
+  - component: {fileID: 1103526589516023677}
   m_Layer: 0
   m_Name: TriggerExplosion
-  m_TagString: Untagged
+  m_TagString: EnemyHit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1382879190062418402
 Transform:
   m_ObjectHideFlags: 0
@@ -901,6 +903,22 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1103526589516023677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7187769228900002787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fff51d06cbb649d0a7553ed752a0961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  pushForce: 500
+  owner: {fileID: 0}
+  enemy: {fileID: 7032128482858954310}
 --- !u!1 &7634944030733939186
 GameObject:
   m_ObjectHideFlags: 0
