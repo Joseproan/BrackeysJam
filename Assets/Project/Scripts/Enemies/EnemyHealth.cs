@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
+    private GameManager gameManager;
     public float maxHealth = 14f;
     public float health;
     public GameObject explosionSFX;
 
+    public int reward = 3;
     private bool isDead;
     // Start is called before the first frame update
     void Start()
     {
         health = maxHealth;
+        gameManager = GameManager.instance;
     }
 
     // Update is called once per frame
@@ -29,9 +32,9 @@ public class EnemyHealth : MonoBehaviour
     {
         if(health <= 0)
         {
-            Destroy(gameObject);
             if (!isDead)
             {
+                gameManager.money += reward;
                 Instantiate(explosionSFX, this.transform.position, Quaternion.identity);
                 isDead = true;
                 Destroy(gameObject, 0.1f);
