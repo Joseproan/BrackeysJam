@@ -17,7 +17,8 @@ public class BasicTurret : MonoBehaviour
     [Header("Turret Components")]
     [SerializeField] private Transform cannon;
     public GameObject bulletPrefab;
-    public Transform firePoint;
+    public Transform firePointR;
+    public Transform firePointL;
 
     [Header("Turret Stats")]
     public float range = 15f;
@@ -25,11 +26,13 @@ public class BasicTurret : MonoBehaviour
     public float turnSpeed = 10f;
     public float damage = 3f;
     public int maxAmmo = 20;
-
+    private bool dual;
     [Header("Detail Stats")]
     public float rotationPatrol = 20f;
 
     public int ammo;
+
+    [SerializeField] private AudioSource shot;
     // Start is called before the first frame update
     void Start()
     {
@@ -93,15 +96,37 @@ public class BasicTurret : MonoBehaviour
 
     void Shoot()
     {
-       GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position,firePoint.rotation);
-       Bullet bullet = bulletGO.GetComponent<Bullet>();
-       bullet.damage = damage;
-       if(bullet != null)
+        if (!dual)
         {
-            bullet.Seek(target);
+            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePointR.position, firePointR.rotation);
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            bullet.damage = damage;
+            if (bullet != null)
+            {
+                bullet.Seek(target);
+            }
+            dual = true;
+            ammo--;
+            shot.pitch = Random.Range(0.8f, 1.2f);
+            shot.Play();
+            Debug.Log("entra");
+        }
+        else
+        {
+            GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePointL.position, firePointL.rotation);
+            Bullet bullet = bulletGO.GetComponent<Bullet>();
+            bullet.damage = damage;
+            if (bullet != null)
+            {
+                bullet.Seek(target);
+            }
+            dual = false;
+            ammo--;
+            shot.pitch = Random.Range(0.8f, 1.2f);
+            shot.Play();
         }
 
-        ammo--;
+
     }
     private void OnDrawGizmosSelected()
     {

@@ -11,8 +11,7 @@ public class EnemyHealth : MonoBehaviour
 
     public int reward = 3;
     private bool isDead;
-    float ola;
-    int ola2;
+    [SerializeField] private AudioSource deathSound;
 
     [SerializeField] private EnemyHealthBar healthBar;
     // Start is called before the first frame update
@@ -43,6 +42,8 @@ public class EnemyHealth : MonoBehaviour
                 gameManager.money += reward;
                 Instantiate(explosionSFX, this.transform.position, Quaternion.identity);
                 isDead = true;
+                deathSound.pitch = Random.Range(0.8f, 1.2f);
+                deathSound.Play();
                 Destroy(gameObject, 0.1f);
             }
         }
