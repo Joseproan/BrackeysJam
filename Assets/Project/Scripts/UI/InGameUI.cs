@@ -20,7 +20,7 @@ public class InGameUI : MonoBehaviour
     void Update()
     {
         moneyText.text = gameManager.money.ToString();
-        ammoText.text = gameManager.ammo.ToString();
+        //ammoText.text = gameManager.ammo.ToString() + " / "+ gameManager.maxAmmo.ToString();
 
     }
 }

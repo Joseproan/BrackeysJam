@@ -49,8 +49,11 @@ public class BasicEnemy : MonoBehaviour
         // Si el estado actual es SEEK (el enemigo est� buscando al jugador)
         if (currentState == states.SEEK)
         {
-            playerPos = player.transform.position;
-            agent.SetDestination(playerPos);
+            if(player != null){
+                playerPos = player.transform.position;
+                agent.SetDestination(playerPos);
+            }
+
 
             if (Vector3.Distance(playerPos, this.transform.position) <= distanceToAttack)
             {

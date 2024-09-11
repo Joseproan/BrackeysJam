@@ -11,11 +11,13 @@ public class EnemyHealth : MonoBehaviour
 
     public int reward = 3;
     private bool isDead;
+    float ola;
+    int ola2;
     // Start is called before the first frame update
     void Start()
     {
-        health = maxHealth;
         gameManager = GameManager.instance;
+        health = maxHealth + gameManager.round;
     }
 
     // Update is called once per frame

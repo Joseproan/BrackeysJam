@@ -5,8 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Interactions;
+using static GameManager;
+
 public class InputManager : MonoBehaviour
 {
+    GameManager gameManager;
     PlayerInput playerControls;
     AnimationManager animationManager;
 
@@ -25,6 +28,11 @@ public class InputManager : MonoBehaviour
         animationManager = GetComponent<AnimationManager>();
         _transform = transform;
     }
+
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+    }
     private void OnEnable()
     {
         if(playerControls == null)
@@ -37,12 +45,14 @@ public class InputManager : MonoBehaviour
         
         playerControls.Enable();
         playerControls.Player.Interact.performed += DoInteract;
+        playerControls.Player.NewRound.performed += NewRound;
     }
     private void OnDisable()
     {
         
         playerControls.Disable();
         playerControls.Player.Interact.performed += DoInteract;
+        playerControls.Player.NewRound.performed += NewRound;
     }
 
     public void HandleAllInputs()
@@ -65,5 +75,14 @@ public class InputManager : MonoBehaviour
 
         if(!hit.transform.TryGetComponent(out InteractableObject interactable)) return;
         interactable.Interact();
+    }
+
+    private void NewRound(InputAction.CallbackContext callbackContext)
+    {
+        if(!gameManager.newRound && gameManager.state == gameState.Relax)
+        {
+            gameManager.newRound = true;
+
+        }
     }
 }

@@ -228,7 +228,7 @@ Transform:
   - {fileID: 8145492477865198921}
   - {fileID: 1382879190062418402}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1623270327771611582
 Rigidbody:
@@ -312,6 +312,7 @@ MonoBehaviour:
   health: 0
   explosionSFX: {fileID: 8650938231098632368, guid: 4ccd4d88799b3e141a80d0714272a732,
     type: 3}
+  reward: 3
 --- !u!136 &9020805084634170192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -901,7 +902,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 2
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1103526589516023677
 MonoBehaviour:
@@ -915,7 +916,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fff51d06cbb649d0a7553ed752a0961, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   pushForce: 500
   owner: {fileID: 0}
   enemy: {fileID: 7032128482858954310}
@@ -1129,11 +1130,11 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 3511325375820423461, guid: b16bc2923815222409d829c06bb6b153, type: 3}
-  - {fileID: 7046814953253937625, guid: b16bc2923815222409d829c06bb6b153, type: 3}
-  - {fileID: 2781410738928257789, guid: b16bc2923815222409d829c06bb6b153, type: 3}
+  - {fileID: 2100000, guid: 672aa28ace5e9364883a350ae16d643a, type: 2}
+  - {fileID: 2100000, guid: 9a1d7121301ba3c408799ef520398fb2, type: 2}
+  - {fileID: 2100000, guid: 9a1d7121301ba3c408799ef520398fb2, type: 2}
   - {fileID: 6524843967714326363, guid: b16bc2923815222409d829c06bb6b153, type: 3}
-  - {fileID: -9007632685173550870, guid: b16bc2923815222409d829c06bb6b153, type: 3}
+  - {fileID: 2100000, guid: bc5c8f1ef0e635b4ab3eb123316b8645, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
