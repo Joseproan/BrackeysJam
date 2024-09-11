@@ -62,6 +62,7 @@ public class InputManager : MonoBehaviour
         if (!Physics.Raycast(_transform.position + (Vector3.up * 0.3f) + (_transform.forward * 0.2f), _transform.forward,
             out var hit, 3f, interactableLayer)) return;
 
+
         if(!hit.transform.TryGetComponent(out InteractableObject interactable)) return;
         interactable.Interact();
     }

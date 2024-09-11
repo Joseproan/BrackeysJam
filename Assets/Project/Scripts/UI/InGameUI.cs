@@ -9,6 +9,7 @@ public class InGameUI : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI moneyText;
+    [SerializeField] TextMeshProUGUI ammoText;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,5 +20,7 @@ public class InGameUI : MonoBehaviour
     void Update()
     {
         moneyText.text = gameManager.money.ToString();
+        ammoText.text = gameManager.ammo.ToString();
+
     }
 }

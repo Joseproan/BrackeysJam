@@ -2,27 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UIElements;
 
 public class Interaction : MonoBehaviour
 {
-    private PlayerInput _playerInput;
+    //Interact param
+    private Transform _transform;
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private GameObject interactableUI;
+   
+
+    private bool canInteract;
+
     private void Awake()
     {
-        _playerInput = GetComponent<PlayerInput>();
+        _transform = transform;
     }
-
-    private void OnEnable()
+    private void Update()
     {
-        _playerInput.Player.Interact.performed += DoInteract;
-    }
+        if (Physics.Raycast(_transform.position + (Vector3.up * 0.3f) + (_transform.forward * 0.2f), _transform.forward,
+    out var hit, 3f, interactableLayer)) canInteract = true;
+        else canInteract = false;
 
-    private void OnDisable()
-    {
-        _playerInput.Player.Interact.performed += DoInteract;
-    }
-
-    private void DoInteract(InputAction.CallbackContext callbackContext)
-    {
-        Debug.Log("Interact");
+        if(canInteract) interactableUI.SetActive(true);
+        else interactableUI.SetActive(false);
     }
 }

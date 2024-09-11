@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     //General Stats
     public int money;
+    public int ammo;
+    public int maxAmmo;
     public int round;
     public int numEnemies;
     public int incEnemyPerRound;

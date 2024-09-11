@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 namespace Interactions
 {
@@ -9,7 +10,7 @@ namespace Interactions
     {
         private bool isOn;
         [SerializeField] private UnityEvent _stopInteract;
-        [SerializeField] private UnityEvent _onInteract; 
+        [SerializeField] private UnityEvent _onInteract;
 
         UnityEvent Iinteraction._onInteract
         {
