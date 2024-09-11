@@ -13,11 +13,14 @@ public class EnemyHealth : MonoBehaviour
     private bool isDead;
     float ola;
     int ola2;
+
+    [SerializeField] private EnemyHealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.instance;
         health = maxHealth + gameManager.round;
+        healthBar.UpdateHealthBar(maxHealth, health);
     }
 
     // Update is called once per frame
@@ -29,6 +32,7 @@ public class EnemyHealth : MonoBehaviour
     public void GetHit(float damage)
     {
         health -= damage;
+        healthBar.UpdateHealthBar(maxHealth, health);
     }
     private void Die()
     {

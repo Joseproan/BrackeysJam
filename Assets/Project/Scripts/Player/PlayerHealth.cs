@@ -14,6 +14,9 @@ public class PlayerHealth : MonoBehaviour
     private Vector3 attackPosition;
     private float pushForce;
 
+    float timer;
+    float inmuneTime = 0.1f;
+    [SerializeField] private EnemyHealthBar healthBar;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -22,6 +25,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         health = maxHealth;
+        healthBar.UpdateHealthBar(maxHealth, health);
     }
     private void FixedUpdate()
     {
@@ -36,7 +40,16 @@ public class PlayerHealth : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        health -= damage;
+        if(timer <= 0)
+        {
+            health -= damage;
+            healthBar.UpdateHealthBar(maxHealth, health);
+            timer = inmuneTime;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+        }
 
         if (health <= 0) Die();
     }
