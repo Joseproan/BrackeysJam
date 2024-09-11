@@ -12,23 +12,6 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        OnAwake();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        Debug.Log("ola");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    protected void OnAwake()
-    {
         agent = GetComponent<NavMeshAgent>();
         health = GetComponent<EnemyHealth>();
         animator = GetComponent<Animator>();

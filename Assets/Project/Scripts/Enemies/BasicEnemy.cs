@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicEnemy : MonoBehaviour
+public class BasicEnemy : Enemy
 {
     enum states
     {

@@ -16,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
 
     float timer;
     float inmuneTime = 0.1f;
+    private bool isInmune;
     [SerializeField] private EnemyHealthBar healthBar;
     private void Awake()
     {
@@ -26,6 +27,13 @@ public class PlayerHealth : MonoBehaviour
     {
         health = maxHealth;
         healthBar.UpdateHealthBar(maxHealth, health);
+    }
+    private void Update()
+    {
+        if(timer <= 0)
+        {
+            isInmune = false;
+        }else timer -= Time.deltaTime;
     }
     private void FixedUpdate()
     {
@@ -40,15 +48,12 @@ public class PlayerHealth : MonoBehaviour
 
     public void ReceiveDamage(float damage)
     {
-        if(timer <= 0)
+        if(!isInmune)
         {
             health -= damage;
             healthBar.UpdateHealthBar(maxHealth, health);
+            isInmune = true;
             timer = inmuneTime;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
         }
 
         if (health <= 0) Die();
