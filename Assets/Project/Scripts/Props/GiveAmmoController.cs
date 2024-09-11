@@ -24,9 +24,11 @@ public class GiveAmmoController : MonoBehaviour
     {
         if (gameManager.ammo + CalculateLevel(propLevel) <= gameManager.maxAmmo)
         {
-            gameManager.ammo = gameManager.maxAmmo;
+            gameManager.ammo += CalculateLevel(propLevel);
         }
-        else  gameManager.ammo += CalculateLevel(propLevel);
+        else {
+            gameManager.ammo = gameManager.maxAmmo;
+           }
     }
 
     private int CalculateLevel(int level)

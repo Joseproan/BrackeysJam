@@ -24,12 +24,12 @@ public class BasicTurret : MonoBehaviour
     public float fireRate = 1F;
     public float turnSpeed = 10f;
     public float damage = 3f;
-    public float maxAmmo = 20f;
+    public int maxAmmo = 20;
 
     [Header("Detail Stats")]
     public float rotationPatrol = 20f;
 
-    public float ammo;
+    public int ammo;
     // Start is called before the first frame update
     void Start()
     {

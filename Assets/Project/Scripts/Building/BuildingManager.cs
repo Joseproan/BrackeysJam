@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BuildingManager : MonoBehaviour
 {
+    private GameManager gameManager;    
     public GameObject[] objects;
     private GameObject pendingObject;
     private Vector3 pos;
@@ -11,7 +12,10 @@ public class BuildingManager : MonoBehaviour
     private RaycastHit hit;
     [SerializeField] private LayerMask layerMask;
 
-
+    private void Start()
+    {
+        gameManager = GameManager.instance;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -32,7 +36,12 @@ public class BuildingManager : MonoBehaviour
 
     public void PlaceObject()
     {
-        pendingObject = null;
+        if(gameManager.money >= 10)
+        {
+            pendingObject = null;
+            gameManager.money -= 10;
+        }
+        
     }
 
     private void FixedUpdate()
