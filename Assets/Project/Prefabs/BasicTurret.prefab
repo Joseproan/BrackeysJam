@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 3229754951202666410}
   m_Layer: 0
   m_Name: BasicTurret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -190,7 +190,7 @@ Transform:
   - {fileID: 3719095222765457807}
   - {fileID: 3529305294603693562}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7343983728957919628
 MeshFilter:
