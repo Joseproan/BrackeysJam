@@ -9,7 +9,7 @@ public class EnemyDamage : MonoBehaviour
     public float pushForce;
 
     [HideInInspector] public GameObject owner;
-    public BasicEnemy enemy;
+    public GameObject enemy;
     internal float power;
 
 

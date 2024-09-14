@@ -33,6 +33,7 @@ public class BasicTurret : MonoBehaviour
     public int ammo;
 
     [SerializeField] private AudioSource shot;
+    [SerializeField] private CanConstruct canBuild;
     // Start is called before the first frame update
     void Start()
     {

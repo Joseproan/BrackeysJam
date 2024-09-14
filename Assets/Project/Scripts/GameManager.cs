@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
             if (numEnemies > 0 && timer <= 0)
             {
                 timer = timeBetween;
-                enemies[numEnemies - 1] = Instantiate(typeOfEnemies[0], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
+                enemies[numEnemies - 1] = Instantiate(typeOfEnemies[Random.Range(0,typeOfEnemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                     Quaternion.identity);
                 numEnemies--;
             }

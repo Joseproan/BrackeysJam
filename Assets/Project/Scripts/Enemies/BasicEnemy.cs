@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class BasicEnemy : Enemy
+public class BasicEnemy : MonoBehaviour
 {
     enum states
     {
@@ -28,6 +28,8 @@ public class BasicEnemy : Enemy
     [SerializeField] private float distanceToAttack;
     [SerializeField] private GameObject explosionCollider;
     [SerializeField] private GameObject explosionSFX;
+
+    [SerializeField] private EnemyDamage enemyDamage;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -40,7 +42,7 @@ public class BasicEnemy : Enemy
     {
         player = GameObject.FindWithTag("Player");
         currentState = states.SEEK;
-
+        enemyDamage.enemy = this.gameObject;
     }
 
 
