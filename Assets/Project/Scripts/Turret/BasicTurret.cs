@@ -110,7 +110,6 @@ public class BasicTurret : MonoBehaviour
             ammo--;
             shot.pitch = Random.Range(0.8f, 1.2f);
             shot.Play();
-            Debug.Log("entra");
         }
         else
         {

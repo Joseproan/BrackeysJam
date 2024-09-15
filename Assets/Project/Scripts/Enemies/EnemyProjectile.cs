@@ -4,21 +4,18 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] GameObject sfx;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
+            Instantiate(sfx, this.transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        if (other.gameObject.CompareTag("Ground"))
+        {
+            Instantiate(sfx, this.transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

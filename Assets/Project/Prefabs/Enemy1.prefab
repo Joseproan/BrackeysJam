@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5181221496591193513}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 466025789856095361}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PT.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7550767258983918089}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1219780587221430137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3214411419960989545}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 5493990965979815772}
   - component: {fileID: 8390308317738317540}
   - component: {fileID: 9013213443761770616}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBarCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -284,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5732638147405328973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 7862599161850571449}
   - component: {fileID: 9020805084634170192}
   - component: {fileID: 2321166398593474775}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Enemy1
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -411,12 +411,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41a168cd74e6120458b797dc92093946, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathSound: {fileID: 7082502576744255959}
   attackFeedbackTimer: 1
   distanceToAttack: 8
   explosionCollider: {fileID: 7187769228900002787}
   explosionSFX: {fileID: 8650938231098632368, guid: 4ccd4d88799b3e141a80d0714272a732,
     type: 3}
+  enemyDamage: {fileID: 1103526589516023677}
 --- !u!114 &7862599161850571449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,6 +436,7 @@ MonoBehaviour:
   reward: 3
   deathSound: {fileID: 7082502576744255959}
   healthBar: {fileID: 9013213443761770616}
+  coin: {fileID: 8513644210361918307, guid: 2e9b4d5b94232ff48a517a033e8c3314, type: 3}
 --- !u!136 &9020805084634170192
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -489,7 +490,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2158674797081406710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -521,7 +522,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8145492477865198921}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -552,7 +553,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 920016299304972900}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -588,7 +589,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2782246108824910604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CharacterArmature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -620,7 +621,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5102568623459646259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -652,7 +653,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5823829504857712883}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -684,7 +685,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4079541768694826355}
   - component: {fileID: 423701327818843909}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -788,7 +789,7 @@ GameObject:
   - component: {fileID: 5641444277536388585}
   - component: {fileID: 8433271845461095945}
   - component: {fileID: 9090730080879900873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foreground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -862,7 +863,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8860973455483913361}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -894,7 +895,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7798941571539492589}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PT.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -925,7 +926,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4280767533719407526}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -961,7 +962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3049483272826530309}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +996,7 @@ GameObject:
   - component: {fileID: 3908153001084248489}
   - component: {fileID: 8172569048998301935}
   - component: {fileID: 3019677831251574208}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,7 +1071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3898551132818949069}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg1.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1102,7 +1103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7836127637923625004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1137,7 +1138,7 @@ GameObject:
   - component: {fileID: 1382879190062418402}
   - component: {fileID: 711695056148717134}
   - component: {fileID: 1103526589516023677}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TriggerExplosion
   m_TagString: EnemyHit
   m_Icon: {fileID: 0}
@@ -1195,7 +1196,7 @@ MonoBehaviour:
   damage: 3
   pushForce: 500
   owner: {fileID: 0}
-  enemy: {fileID: 7032128482858954310}
+  enemy: {fileID: 0}
 --- !u!1 &7634944030733939186
 GameObject:
   m_ObjectHideFlags: 0
@@ -1205,7 +1206,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1383235475258023604}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1237,7 +1238,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1942262927292068940}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1268,7 +1269,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7701606516610338362}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PT.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,7 +1301,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3341397775624000094}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg3.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1332,7 +1333,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5164929625795193191}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PT.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8848341761183281948}
   - component: {fileID: 7895709504466769281}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1467,7 +1468,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5135192902757786887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Foot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1499,7 +1500,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2281809330533432252}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Eye_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1530,7 +1531,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412090639683744145}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Leg2.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1563,7 +1564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 808798383811973993}
   - component: {fileID: 7082502576744255959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}

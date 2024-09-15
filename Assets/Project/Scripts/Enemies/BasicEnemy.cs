@@ -10,7 +10,7 @@ public class BasicEnemy : MonoBehaviour
     {
         SEEK, ATTACK, DESTROY
     }
-
+    private GameManager gameManager;
     private NavMeshAgent agent;
     internal EnemyHealth health;
     private Animator animator;
@@ -40,6 +40,7 @@ public class BasicEnemy : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.instance;
         player = GameObject.FindWithTag("Player");
         currentState = states.SEEK;
         enemyDamage.enemy = this.gameObject;
@@ -84,6 +85,7 @@ public class BasicEnemy : MonoBehaviour
                     explosionCollider.SetActive(true);
                     Instantiate(explosionSFX, this.transform.position, Quaternion.identity);
                     isExploding = true;
+                    gameManager.enemiesToDefeat++;
                     Destroy(gameObject, 0.1f);
                 }
             }

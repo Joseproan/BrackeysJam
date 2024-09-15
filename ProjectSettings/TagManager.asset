@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - EnemyHit
   - Turret
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Interactable
   - Player
   - Ground
-  - 
-  - 
+  - Enemy
+  - Coin
   - 
   - 
   - 

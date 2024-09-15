@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Project/Scenes/Gym.unity
     guid: 250b3c9e736732b40bd77cc93f5185f3
+  - enabled: 1
+    path: Assets/Project/Scenes/Defeat.unity
+    guid: 6ad66381af6504d45a33eed8257cbc06
+  - enabled: 1
+    path: Assets/Project/Scenes/Victory.unity
+    guid: 22825e9ddbcb60942b8b255e452c1c4f
   m_configObjects: {}

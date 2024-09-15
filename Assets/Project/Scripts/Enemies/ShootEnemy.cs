@@ -20,6 +20,8 @@ public class ShootEnemy : MonoBehaviour
     [SerializeField] private float projectileVelocityForward = 32f;
     [SerializeField] private float projectileVelocityUp = 8f;
     [SerializeField] private Transform firePoint;
+    [SerializeField] private AudioSource shootSound;
+    private bool shootSoundOnce;
 
     private void Awake()
     {
@@ -52,12 +54,21 @@ public class ShootEnemy : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            shootSoundOnce = false;
             animator.SetBool("Run", false);
             animator.SetBool("Idle", false);
             animator.SetTrigger("Attack");
             Rigidbody rb = Instantiate(projectile, firePoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             EnemyDamage bulletDamage = rb.GetComponent<EnemyDamage>();
             bulletDamage.enemy = this.gameObject;
+            if (!shootSoundOnce)
+            {
+                shootSound.pitch = Random.Range(0.8f, 1.2f);
+                shootSound.Play();
+                shootSoundOnce = true;
+            }
+
+
             rb.AddForce(transform.forward * projectileVelocityForward, ForceMode.Impulse);
             rb.AddForce(transform.up * projectileVelocityUp, ForceMode.Impulse);
 
@@ -68,6 +79,7 @@ public class ShootEnemy : MonoBehaviour
         {
             animator.SetBool("Run", false);
             animator.SetBool("Idle", true);
+            shootSoundOnce = true;
         }
     }
 

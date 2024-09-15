@@ -46,6 +46,7 @@ public class InputManager : MonoBehaviour
         playerControls.Enable();
         playerControls.Player.Interact.performed += DoInteract;
         playerControls.Player.NewRound.performed += NewRound;
+        playerControls.Player.Pause.performed += Menu;
     }
     private void OnDisable()
     {
@@ -53,6 +54,7 @@ public class InputManager : MonoBehaviour
         playerControls.Disable();
         playerControls.Player.Interact.performed += DoInteract;
         playerControls.Player.NewRound.performed += NewRound;
+        playerControls.Player.Pause.performed += Menu;
     }
 
     public void HandleAllInputs()
@@ -84,5 +86,13 @@ public class InputManager : MonoBehaviour
             gameManager.newRound = true;
 
         }
+    }  
+    private void Menu(InputAction.CallbackContext callbackContext)
+    {
+        if(!gameManager.pause)
+        {
+            gameManager.pause = true;
+        }else gameManager.pause = false;
+        
     }
 }

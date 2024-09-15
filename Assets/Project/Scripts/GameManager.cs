@@ -2,6 +2,7 @@ using BehaviorDesigner.Runtime.Tasks.Unity.Math;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] typeOfEnemies;
     private GameObject[] enemies;
     public Transform[] spawnPoints;
+    [SerializeField] private GameObject pressText;
 
     public bool newRound;
     private float timer;
@@ -36,6 +38,13 @@ public class GameManager : MonoBehaviour
     private bool relaxTime;
 
     public int maxNewEnemies, minNewEnemies;
+    public AudioSource newRoundSound;
+
+    public int enemiesToDefeat;
+    public int fixEnemiesToDefeat;
+
+    public bool pause;
+    public int winCondition = 3;
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -50,21 +59,29 @@ public class GameManager : MonoBehaviour
             state = gameState.Relax;
             round = 1;
             numEnemies = fixNumEnemies;
+        enemiesToDefeat = 0;
         relaxTime = true;
-        
-        
+        pause = false;
+        pressText.SetActive(true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (state == gameState.Relax)
+        {
+            pressText.SetActive(true);
+        }
         if(state == gameState.Battle)
         {
-
+            pressText.SetActive(false);
             if (numEnemies > 0 && timer <= 0)
             {
                 timer = timeBetween;
-                enemies[numEnemies - 1] = Instantiate(typeOfEnemies[Random.Range(0,typeOfEnemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
+                if(round == 1)
+                enemies[numEnemies - 1] = Instantiate(typeOfEnemies[0], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
+                    Quaternion.identity);
+                else enemies[numEnemies - 1] = Instantiate(typeOfEnemies[Random.Range(0, typeOfEnemies.Length)], spawnPoints[Random.Range(0, spawnPoints.Length)].transform.position,
                     Quaternion.identity);
                 numEnemies--;
             }
@@ -73,7 +90,7 @@ public class GameManager : MonoBehaviour
                 timer -= Time.deltaTime;
             }
 
-            if(numEnemies <= 0 && !relaxTime)
+            if(enemiesToDefeat == fixNumEnemies && !relaxTime)
             {
                 state = gameState.Relax;
                 relaxTime = true;
@@ -82,10 +99,15 @@ public class GameManager : MonoBehaviour
         }
         if(newRound)
         {
+            pressText.SetActive(true);
             enemies = new GameObject[numEnemies];
             state = gameState.Battle;
             newRound = false;
             relaxTime=false;
+        }
+        if(round == winCondition)
+        {
+            SceneManager.LoadScene("Victory");
         }
     }
     public void UpdateGameState(gameState newState)
@@ -95,7 +117,10 @@ public class GameManager : MonoBehaviour
     }
     public void NewRound()
     {
-        numEnemies = fixNumEnemies + Random.Range(minNewEnemies, maxNewEnemies);
+        newRoundSound.Play();
+        fixNumEnemies += Random.Range(minNewEnemies, maxNewEnemies);
+        enemiesToDefeat = 0;
+        numEnemies = fixNumEnemies;
         round++;
     }
 
